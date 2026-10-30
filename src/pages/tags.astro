@@ -1,0 +1,8 @@
+---
+import Base from '../layouts/Base.astro';
+import PostList from '../components/PostList.astro';
+import { getPosts } from '../lib/posts';
+const posts = await getPosts();
+const tags = [...new Set(posts.flatMap(p=>p.frontmatter.tags))];
+---
+<Base title="标签 · Leo 的技术笔记"><section class="page-head"><div class="eyebrow">EXPLORE BY TOPIC</div><h1>按兴趣探索<span class="accent">。</span></h1><p>把零散的记录，连成自己的知识地图。</p></section>{tags.map(tag=><section id={tag} class="tag-section"><h2># {tag}</h2><PostList posts={posts.filter(p=>p.frontmatter.tags.includes(tag))}/></section>)}</Base>

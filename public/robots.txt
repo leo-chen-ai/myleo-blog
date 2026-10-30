@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://myleo-chen.top/sitemap-index.xml

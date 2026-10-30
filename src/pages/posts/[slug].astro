@@ -1,0 +1,8 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getPosts } from '../../lib/posts';
+export async function getStaticPaths() { return (await getPosts()).map(post=>({params:{slug:post.file.split('/').pop().replace(/\.md$/,'')},props:{post}})); }
+const { post } = Astro.props;
+const { Content, frontmatter } = post;
+---
+<Base title={`${frontmatter.title} · Leo 的技术笔记`} description={frontmatter.description}><article><div class="page-head article-head"><a class="back" href="/posts/">← 所有文章</a><div class="eyebrow">{frontmatter.date} · {frontmatter.tags.join(' / ')}</div><h1>{frontmatter.title}</h1><p>{frontmatter.description}</p></div><div class="prose"><Content/></div></article></Base>

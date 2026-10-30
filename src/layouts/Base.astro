@@ -1,0 +1,6 @@
+---
+import '../styles/global.css';
+const { title = 'Leo 的技术笔记', description = '记录后端开发、AI 应用与工程实践。' } = Astro.props;
+const path = Astro.url.pathname;
+---
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width"/><title>{title}</title><meta name="description" content={description}/><link rel="canonical" href={new URL(path, Astro.site)}/><link rel="icon" type="image/svg+xml" href="/favicon.svg"/><link rel="alternate" type="application/rss+xml" title="Leo 的技术笔记" href="/rss.xml"/></head><body><a class="skip" href="#main">跳转到正文</a><div class="shell"><header><a class="brand" href="/">leo<span>.</span></a><nav aria-label="主导航">{[['/', '首页'], ['/posts/', '文章'], ['/tags/', '标签'], ['/about/', '关于']].map(([href,label])=><a href={href} aria-current={path===href?'page':undefined}>{label}</a>)}</nav><a class="github" href="https://github.com/leo-chen-ai">GitHub ↗</a></header><main id="main"><slot/></main><footer><span>© {new Date().getFullYear()} Leo.chen</span><span>持续学习，认真记录。 <a href="/rss.xml">RSS ↗</a></span></footer></div></body></html>

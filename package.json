@@ -1,0 +1,21 @@
+{
+  "name": "myleo-blog",
+  "version": "1.0.0",
+  "description": "Leo 的个人技术博客",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.4.1"
+  },
+  "type": "module",
+  "private": true
+}

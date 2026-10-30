@@ -1,0 +1,7 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostList from '../../components/PostList.astro';
+import { getPosts } from '../../lib/posts';
+const posts = await getPosts();
+---
+<Base title="所有文章 · Leo 的技术笔记"><section class="page-head"><div class="eyebrow">THE ARCHIVE</div><h1>所有文章<span class="accent">。</span></h1><p>关于技术、实践与思考的 {posts.length} 篇记录。</p></section><PostList posts={posts}/></Base>
