@@ -5,4 +5,17 @@ export async function getStaticPaths() { return (await getPosts()).map(post=>({p
 const { post } = Astro.props;
 const { Content, frontmatter } = post;
 ---
-<Base title={`${frontmatter.title} · Leo 的技术笔记`} description={frontmatter.description}><article><div class="page-head article-head"><a class="back" href="/posts/">← 所有文章</a><div class="eyebrow">{frontmatter.date} · {frontmatter.tags.join(' / ')}</div><h1>{frontmatter.title}</h1><p>{frontmatter.description}</p></div><div class="prose"><Content/></div></article></Base>
+<Base title={`${frontmatter.title} · Leo 的技术笔记`} description={frontmatter.description}><article class="article-page"><div class="page-head article-head"><a class="back" href="/posts/">← 所有文章</a><div class="eyebrow">{frontmatter.date} · {frontmatter.tags.join(' / ')}</div><h1>{frontmatter.title}</h1><p>{frontmatter.description}</p></div><div class="prose"><Content/></div></article></Base>
+
+<style>
+  .article-head { padding: 36px 0 20px; }
+  .article-head .back { margin-bottom: 22px; }
+  .article-head h1 { margin: 18px 0 16px; }
+  .article-head > p { margin: 0; }
+  .prose { max-width: none; margin: 0 0 64px; }
+  .prose :global(h2:first-child) { margin-top: 12px; }
+  @media (max-width: 700px) {
+    .article-head { padding-top: 28px; }
+    .article-head .back { margin-bottom: 18px; }
+  }
+</style>
